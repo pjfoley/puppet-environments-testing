@@ -16,4 +16,4 @@ mod "adrien/network"
 mod "adrien/filemapper"
 mod "adrien/boolean"
 mod "dns",
-  :git => 'git://git@github.com:ajjahn/puppet-dns.git'
+  :git => 'git://github.com/ajjahn/puppet-dns.git'
