@@ -17,9 +17,11 @@ class{ 'puppet::repo::puppetlabs': }
 Class[ 'puppet::repo::puppetlabs'] -> Package <| |> class { 'puppetdb': }
 
 class { 'puppet::master':
-  modulepath   => inline_template("<%= @modulepath.join(':') %>"),
-  manifest     => '$confdir/environments/$environment/manifests/site.pp',
-  storeconfigs => true,
+  modulepath            => inline_template("<%= @modulepath.join(':') %>"),
+  manifest              => '$confdir/environments/$environment/manifests/site.pp',
+  storeconfigs          => true,
+  storeconfigs_dbserver => 'creator.mgnt.local',
+  certname              => 'creator.mgnt.local',
 }
 
 puppet::masterenv { 'main':
