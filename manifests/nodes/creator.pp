@@ -3,6 +3,16 @@ $modulepath = [
   "${confdir}/environments/${environment}/site",
 ]
 
+network_config { 'eth0':
+  ensure    => present,
+  family    => inet,
+  method    => static,
+  ipaddress => '10.0.0.1',
+  netmask   => '255.255.255.0',
+  onboot    => true,
+}
+
+
 class{ 'puppet::repo::puppetlabs': }
 Class[ 'puppet::repo::puppetlabs'] -> Package <| |> class { 'puppetdb': }
 
