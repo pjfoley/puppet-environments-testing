@@ -1,6 +1,6 @@
 $modulepath = [
-  "${confdir}/environments/${environment}/modules",
-  "${confdir}/environments/${environment}/site",
+  '$confdir/environments/${environment}/modules',
+  '$confdir/environments/${environment}/site',
 ]
 
 network_config { 'eth0':
@@ -18,7 +18,7 @@ Class[ 'puppet::repo::puppetlabs'] -> Package <| |> class { 'puppetdb': }
 
 class { 'puppet::master':
   modulepath            => inline_template("<%= @modulepath.join(':') %>"),
-  manifest              => '$confdir/environments/$environment/manifests/site.pp',
+  manifest              => '${confdir}/environments/${environment}/manifests/site.pp',
   storeconfigs          => true,
   storeconfigs_dbserver => 'creator.mgnt.local',
   certname              => 'creator.mgnt.local',
@@ -26,5 +26,5 @@ class { 'puppet::master':
 
 puppet::masterenv { 'main':
   modulepath   => inline_template("<%= @modulepath.join(':') %>"),
-  manifest     => '$confdir/environments/$environment/manifests/site.pp',
+  manifest     => '${confdir}/environments/${environment}/manifests/site.pp',
 }
