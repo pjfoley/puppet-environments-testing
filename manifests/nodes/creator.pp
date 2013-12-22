@@ -14,7 +14,7 @@ network_config { 'eth0':
 
 host {'creator.mgnt.local':
   ensure       => present,
-  host_aliaess => creator,
+  host_aliases => creator,
   ip           => '10.0.0.1',
 }
 
