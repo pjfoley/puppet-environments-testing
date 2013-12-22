@@ -12,6 +12,12 @@ network_config { 'eth0':
   onboot    => true,
 }
 
+host {'creator.mgnt.local':
+  ensure       => present,
+  host_aliaess => creator,
+  ip           => '10.0.0.1',
+}
+
 
 class{ 'puppet::repo::puppetlabs': }
 Class[ 'puppet::repo::puppetlabs'] -> Package <| |> class { 'puppetdb': }
