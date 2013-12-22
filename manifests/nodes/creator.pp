@@ -29,8 +29,3 @@ class { 'puppet::master':
   storeconfigs_dbserver => 'creator.mgnt.local',
   certname              => 'creator.mgnt.local',
 }
-
-puppet::masterenv { 'main':
-  modulepath   => inline_template("<%= @modulepath.join(':') %>"),
-  manifest     => '${confdir}/environments/${environment}/manifests/site.pp',
-}
