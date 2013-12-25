@@ -20,7 +20,7 @@ host {'creator.mgnt.local':
 
 
 class{ 'puppet::repo::puppetlabs': }
-Class[ 'puppet::repo::puppetlabs'] -> Package <| |> class { 'puppetdb': }
+Class[ 'puppet::repo::puppetlabs'] -> Package <| |> class { 'puppetdb': listen_address => '192.168.1.101' }
 
 class { 'puppet::master':
   modulepath            => inline_template("<%= @modulepath.join(':') %>"),
