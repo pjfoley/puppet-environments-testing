@@ -18,6 +18,10 @@ host {'creator.mgnt.local':
   ip           => '10.0.0.1',
 }
 
+class {'timezone':
+  area => Australia,
+  zone => Canberra,
+}
 
 class{ 'puppet::repo::puppetlabs': }
 Class[ 'puppet::repo::puppetlabs'] -> Package <| |> class { 'puppetdb': listen_address => '192.168.1.101' }
