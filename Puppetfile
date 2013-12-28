@@ -15,5 +15,7 @@ mod "puppetlabs/ntp"
 mod "adrien/network"
 mod "adrien/filemapper"
 mod "adrien/boolean"
+mod "rlenglet/debconf_package"
+mod "rlenglet/timezone"
 mod "dns",
   :git => 'git://github.com/ajjahn/puppet-dns.git'
